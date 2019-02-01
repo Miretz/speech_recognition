@@ -65,8 +65,8 @@ public class SpeechRecognitionPlugin implements MethodCallHandler, RecognitionLi
                 result.success(true);
                 break;
             case "speech.listen":
-                Locale locale = getLocale(call.arguments.toString());
-                recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, locale.toString());
+                Locale extraLocale = getLocale(call.arguments.toString());
+                recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, extraLocale.toString());
                 speech.startListening(recognizerIntent);
                 result.success(true);
                 break;
