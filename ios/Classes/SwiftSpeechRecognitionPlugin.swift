@@ -33,7 +33,7 @@ public class SwiftSpeechRecognitionPlugin: NSObject, FlutterPlugin, SFSpeechReco
     //result("iOS " + UIDevice.current.systemVersion)
     switch (call.method) {
     case "speech.activate":
-      self.activateRecognition(result: result)
+      self.activateRecognition(lang: call.arguments as! String, result: result)
     case "speech.listen":
       self.startRecognition(lang: call.arguments as! String, result: result)
     case "speech.cancel":
@@ -45,7 +45,7 @@ public class SwiftSpeechRecognitionPlugin: NSObject, FlutterPlugin, SFSpeechReco
     }
   }
 
-  private func activateRecognition(result: @escaping FlutterResult) {
+  private func activateRecognition(lang:String, result: @escaping FlutterResult) {
     speechRecognizerFr.delegate = self
     speechRecognizerEn.delegate = self
     speechRecognizerRu.delegate = self

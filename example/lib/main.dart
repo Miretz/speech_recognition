@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
     _speech.setRecognitionCompleteHandler(onRecognitionComplete);
     _speech.setErrorHandler(errorHandler);
     _speech
-        .activate()
+        .activate(locale: selectedLang.code)
         .then((res) => setState(() => _speechRecognitionAvailable = res));
   }
 
